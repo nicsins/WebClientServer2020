@@ -1,10 +1,126 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>week3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap 4 Accordion</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bs-example{
+            margin: 20px;
+        }
+    </style>
 </head>
-<body>
-<h1>week3</h1>
+<header>
+    <h1>WEEK THREE intro to JS</h1>
+
+</header>
+<div class="bs-example">
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">simple event?</button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+             <div class="card-body border-dark">
+                 <p>this is an example of a click event
+                     <br>
+                     <button id="b1" class="btn-outline-primary" onclick="alert('Hi there i was a button you just clicked using this merthod ')">Click Me</button>
+                     <br>
+                     using <span><b>onclick"alert(your message)" </b></span>inside your button tag
+             </div>
+
+                   <div class="card-body border-secondary"> Then there is the <b >JQuery</b> way way...
+                    <br>
+                    <button class="btn-outline-primary" onclick="alert('Hi there i was a button you just clicked')">Click Me harder</button>
+                </div>
+                        <script>
+                            $('#b2').on('click',function () {
+                                alert('this is the jquery way')
+                            })
+                        </script>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">Quiz html</button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>What is the capitol of Wisconsin?
+                    <div class="d-inline-flex">
+
+                        <button class="wrong" >Bayfield</button>
+                        <button id="correct-answer" >Madison</button>
+                        <button class="wrong">Milwaukee</button>
+
+                    <br>
+              <script>
+                    $('.wrong').each(function () {
+                        $(this).on('click',function(){
+                            $('#result').empty().append('You are NOT CORRECT').css('background','red')
+                            $(this).css('background','red')
+                            $('#correct-answer').css('background','white')
+
+                        });
+                    })
+
+
+
+                      $('#correct-answer').on('click',function () {
+
+                            $('#result').empty().append('You are very Much CORRECT').css('background','yellow')
+                          $('.wrong').css('background','white')
+                      })
+              </script>
+
+                    </div>
+
+                </div>
+                <p id="result"></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">Mouse Over</button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                   <img id="mouse" class="card-img"  src="../images/FaT-Kitty.jpg" alt="mouse"  height="10%" >
+                    <h2 > The count is <span id="count"></span></h2>
+                    <script>
+                        var count=0;
+                        $('#mouse').on('mouseover',function () {
+                            count+=1;
+                            $('#count').empty().append(count.toString())
+
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+</html>
+</body>
+
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing Program</title>
+    <!--<script type="text/javascript" src="circle.js"></script>-->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body id="wrapper">
+
+<header class="section-header box "><h1>Draw Yourself a Picture</h1></header>
+<div class="box">
+     <p>Click the mouse on the canvas</p>
+    <label for="canvas">edge  color=<input id="color" type="color"><br>
+        enter the radius betweem... 1
+        <input id="radius" max="100" min="1" required type="range">100 <br>
+        width of your pencil..1
+        <input id="line-width" max="10" min="1" required type="range">10 <br>
+
+
+        <!--fill color-->
+        <br> Fill color = <input id="fill-color" type="color">>
+        <br></label>
+
+    <canvas id="canvas" height="600" width="600"/>
+</div>
+
+<script>
+
+
+
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var mousedown = false;
+
+    canvas.addEventListener("mousedown", function() {
+        mousedown = true
+    });
+
+    canvas.addEventListener("mouseup", function() {
+        mousedown = false
+    });
+
+    canvas.addEventListener("mousemove", function() {
+
+        if (!mousedown) { return; }
+
+
+        // event is a built-in variable, contains the event that triggered this function
+        // get the n, y location of the event
+        var x = event.offsetX;
+        var y = event.offsetY;   //offsetX, offsetY, may not work in older browsers
+        var R=document.getElementById("radius").value;
+        var LW=document.getElementById("line-width").value;
+
+        var fillColor=document.getElementById("fill-color").value;
+
+        //Draw a filled rectangle centered under the mouse click
+
+
+        context.beginPath();
+        context.lineWidth=LW;
+        context.strokeStyle=document.getElementById("color").value;
+
+        context.arc(x-R, y-R,R,0,2 * Math.PI);  // Whole circle
+
+        context.fillStyle=fillColor;
+
+        context.fill();
+        context.stroke();
+
+    })
+
+
+</script>
+
+</body>
+</html>

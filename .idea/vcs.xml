@@ -4,5 +4,9 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/fbapp/vue-facebook-login" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/html/lab2/week2-examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/html/lab3/week3-examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/html/lab4/week4-examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/html/lab6/capital_city_quiz_base" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/html/lab6/week6-examples" vcs="Git" />
   </component>
 </project>
