@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Vue</title>
+    <link rel="icon" href="../img/Favinic.png">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body id="wrapper">
+    <div id="app">
+        <h1>Hello Vue</h1>
+        <p>
+            {{message.toUpperCase()}}
+        </p>
+        <p>Today is <span> {{date}}</span></p>
+
+        <p> the message is {{ message.length}} letters long</p>
+        <p>{{ favAnimals}}</p>
+        <p> here is another message ...<span>{{another_messege.toUppercase}}</span></p>
+        <p> this semester ,I am taking <span>{{thisClass}}</span></p>
+        <button v-on:click="addExclamation">add !</button>
+        <button v-on:click="clear">clear</button>
+
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message:'Waddup?',
+                date: new Date(),
+                another_messege: 'wuddup chuck?',
+                favAnimals :'I love Dogs and Cats!',
+                thisClass:'Web Programming'
+            },
+            methods :{
+                addExclamation:function(){
+                let addMe='!'
+                this.message = this.message+ addMe},
+                clear:function(){
+                        this.message='Waddup?' }
+
+            }
+        })
+    </script>
+
+</body>
+</html>
+
+

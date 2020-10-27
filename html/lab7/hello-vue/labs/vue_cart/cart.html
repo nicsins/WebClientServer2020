@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Cart</title>
+    <link rel="icon" href="../../img/Favinic.png">
+    <link rel="stylesheet" href="../../style/normalize.css">
+    <link rel="stylesheet" href="../../style/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style>
+    body{
+        background: radial-gradient(#7abaff,white);
+    }
+    td, th {
+        width: 20%;
+        text-align: center
+    }
+    h1{
+        border-bottom: solid 3px blue ;
+        border-radius: 10%;
+    }
+    img {
+        width:100px;height:100px;
+    }
+    img:hover{
+        width:200px;height:200px;
+    }
+</style>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1>How much is That Kitty in the Window??</h1>
+
+        <table>
+            <tr><th>picture</th><th>Item</th><th>Unit Price</th><th>Quantity</th><th>Total</th></tr>
+            <tr>
+                <td><img src="../../img/kitty2.png" alt="meow" ></td>
+                <td>{{ name }}</td>
+                <td>${{ unitPrice }}</td>
+                <td><input type="number" id="quantity" v-model="quantity"></td>
+                <td id="total"> ${{ total | decimalPlaces(2) }} </td>
+            </tr>
+            <tr>
+                <td><img src="../../img/buddypirate.jpg" alt="budrik" ></td>
+                <td>{{ name2 }}</td>
+                <td>${{ unitPrice2 }}</td>
+                <td><input type="number" id="quantity2" v-model="quantity"></td>
+                <td id="total2"> ${{ total | decimalPlaces(2) }} </td>
+            </tr>
+        </table>
+        <div ></div>
+    </div>
+
+<script>
+
+let app = new Vue({
+     el: '#app',
+    data: {
+        name: 'Meowshwitz!',
+        quantity: 1,
+        unitPrice: 499.00 ,
+        name2: 'Budrik',
+        quantity2: 1,
+        unitPrice2: 599.00
+    },
+    computed: {
+        total: function() {
+            return this.quantity * this.unitPrice
+        }
+    },
+    filters: {
+        decimalPlaces: function(price, decimalPlaces) {
+            return price.toFixed(decimalPlaces)
+        }
+    }
+ })
+
+</script>
+
+</body>
+
+</html>

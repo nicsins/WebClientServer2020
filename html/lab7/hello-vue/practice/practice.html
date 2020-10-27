@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practie</title>
+    <link rel="icon" href="../img/Favinic.png">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body id="wrapper">
+<div id="app" class="box">
+    <h1>Hello Vue</h1>
+    <label for="name">Please enter your name: </label>
+    <input v-model="name" id="name">
+    <p v-if="name">
+        Your name is {{ name }}
+    </p>
+    <p v-else> <br></p>
+</div>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: ""
+        },
+    })
+</script>
+
+</body>
+</html>
